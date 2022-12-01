@@ -1,0 +1,13 @@
+//
+// Typography
+// --------------------------------------------------
+
+$font-url: '../fonts';
+
+$fonts: (
+  'Quicksand-bold'
+);
+
+@each $family in $fonts {
+  @include fontFace($family);
+}

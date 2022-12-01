@@ -1,0 +1,50 @@
+//
+// Global variables
+// --------------------------------------------------
+
+$prefix: 'base';
+// .#{$prefix}-m = module
+// .#{$prefix}-p = page
+// .#{$prefix}-h = helper
+// .#{$prefix}-is = state
+
+$assetsMaxWidth: 1400;
+
+// Fonts
+$font-quicksand-bold: 'Quicksand-bold';
+$browser-context: 18;
+
+// Media Queries
+$breakpoints: (
+  "phone": 37.5em,
+  "tablet": 76.8em,
+  "desktop": 102.4em
+);
+
+// Colors
+// Please use http://chir.ag/projects/name-that-color/#6195ED as reference for the colors name
+$color-black: #000;
+$color-black-16: rgba(0, 0, 0, .16);
+$color-gray: #666;
+$color-lightgray: #c2c2c2;
+$color-red: #f15d5d;
+$color-turquoise: #009db9;
+$color-turquoise-links: #0090aa;
+$color-white: #fff;
+$color-light-blue: #d9f0f5;
+$color-light-gray: #e8e8e8;
+$color-blue: #99d8e3;
+$color-light-red: #fde7e7;
+$color-med-red: #f9bebe;
+$color-med-gray: #c2c2c2;
+$color-deepcerulean: #007ba7;
+$color-riverbed: #434c59;
+$color-boulder: #7c7c7c;
+
+// modal styles
+$modal-dialog-margin: 10px;
+$modal-content-border-width: 1px;
+$modal-content-border-color: #f15d5d;
+$modal-inner-padding: 0 25px 20px;
+$zindex-modal: 1050;
+$zindex-modal-bg: 1000;

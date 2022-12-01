@@ -1,0 +1,51 @@
+{{#eq location "tray"}}
+<div class="g-0 isi {{ location }} isi-top-portion">
+  <div class="isi-content">
+
+    <a href="javascript:void(0)" class="isi-arrow expand-isi-top-portion"></a>
+    <div class="g-0 isi-portion">
+      <div class="isi-header">
+        <h1>Top header</h1>
+        <p>content</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{/eq}}
+
+<div class="{{ global.prefix }}-m-isi g-0  isi {{ location }} isi-body-portion">
+  <div class="isi-content">
+    <a href="javascript:void(0)" class="isi-arrow expand-isi"></a>
+    <div class="g-0 ">
+      <div class="isi-header">
+        {{#eq location "tray"}}
+          <h1>Important safety information</h1>
+        {{/eq}}
+
+        {{#eq location "persistent-bottom"}}
+          <h1>Bottom Important safety information</h1>
+        {{/eq}}
+      </div>
+
+      <div class="main-content scroll-wrapper">
+        <div>
+          <p><b>{{ global.isi.title }}</b></p>
+          <p>{{ global.isi.content.paragraph_1 }}</p>
+          <ul>
+            {{#each global.isi.content.list_1}}
+              <li>{{ this }}</li>
+            {{/each}}
+          </ul>
+          <p>{{ global.isi.content.paragraph_1 }}</p>
+          <ul>
+            {{#each global.isi.content.list_1}}
+              <li>{{ this }}</li>
+            {{/each}}
+          </ul>
+          <p>{{ global.isi.content.paragraph_1 }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

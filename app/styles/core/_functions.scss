@@ -1,0 +1,49 @@
+@function rem($pixels) {
+  @return #{$pixels / $browser-context}rem;
+}
+
+/*
+  getProportional([size_in_asset], [page-size-to-apply], [min-size], [optional: asset-max-width])
+  Description:
+    Returns a proportional size for the given [page-size-to-apply] based on the provided size and the max asset width
+
+  $assetMaxWidth:
+    Defined in _variables.scss file
+    Contains the max width of the design
+
+  Usage:
+    font-size: getProportional(48, 768, 30);
+*/
+@function getProportional($size, $currentView, $minSize: 1, $windowMaxWidth: $assetMaxWidth) {
+  $result: ($size * $currentView / $windowMaxWidth);
+
+  @if $result > $size {
+    @return rem($size);
+  }
+
+  @if $result < $minSize {
+   @return rem($minSize);
+  }
+
+  @return rem($result);
+}
+
+/*
+  getProportional_vw([size_in_asset], [optional: asset-max-width])
+  Description:
+    Returns a proportional size based on the provided size and the max asset width in vw units
+
+  $assetMaxWidth:
+    Defined in _variables.scss file
+    Contains the max width of the design
+  Usage:
+      font-size: getProportional_vw(48);
+*/
+@function getProportional_vw($size, $windowMaxWidth: $assetMaxWidth) {
+  @return #{($size * 100 / $windowMaxWidth)}vw;
+}
+
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+  {{#block "head"}}
+    {{> global/head }}
+  {{/block}}
+
+  <body class="{{ global.prefix }}-p {{ page }}-page" >
+    {{#if global.gtm.enabled }}
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ global.gtm.id }}"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    {{/if}}
+
+    {{#block "header"}}
+      {{> global/header }}
+    {{/block}}
+
+    <div role="main">
+      {{#block "body"}}
+          <h2>this is the {{ page }} page</h2>
+      {{/block}}
+    </div>
+    {{#if global.isi.tray }}
+      {{> global/isi location="tray" }}
+    {{/if}}
+
+    <div class="mx-0 container footer">
+      {{#block "footer"}}
+        {{> global/isi location="persistent-bottom" }}
+        {{> global/footer }}
+      {{/block}}
+    </div>
+
+    {{#block "scripts"}}
+      {{> global/scripts }}
+    {{/block}}
+
+  </body>
+</html>

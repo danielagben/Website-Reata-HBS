@@ -1,0 +1,106 @@
+//
+// Mixins
+// --------------------------------------------------
+
+@mixin alignment($align: center, $position: absolute) {
+  position: $position;
+  @if $align == vertical {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $align == horizontal {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $align == center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin fontFace($family, $style: normal, $weight: normal) {
+  @font-face {
+    font-family: $family;
+    src: url('#{$font-url}/#{$family}.eot'),
+      url('#{$font-url}/#{$family}.eot?#iefix') format('embedded-opentype'),
+      url('#{$font-url}/#{$family}.woff2') format('woff2'),
+      url('#{$font-url}/#{$family}.woff') format('woff'),
+      url('#{$font-url}/#{$family}.ttf') format('truetype'),
+      url('#{$font-url}/#{$family}.svg##{$family}') format('svg');
+    font-style: $style;
+    font-weight: $weight;
+  }
+}
+
+// sass-lint:disable-all
+@mixin transition($args...) {
+  -moz-transition: $args;
+  -webkit-transition: $args;
+  -o-transition: $args;
+  -ms-transition: $args;
+  transition: $args;
+}
+
+@mixin rotate($angle) {
+  -moz-transform: rotate($angle);
+  -ms-transform: rotate($angle);
+  transform: rotate($angle);
+  -webkit-transform: rotate($angle);
+}
+
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+// sass-lint:enable-all
+
+@mixin input-placeholder($fontFamily, $normalColor, $errorColor, $fontSize) {
+  // sass-lint:disable-all
+  :-ms-input-placeholder {
+    color: $normalColor;
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    opacity: 1;
+    text-transform: none;
+  }
+  ::-webkit-input-placeholder {
+    color: $normalColor; //font-family: $OpenSansItalic;
+    font-size: $fontSize;
+    opacity: 1;
+    text-transform: none;
+  }
+  ::-moz-placeholder {
+    color: $normalColor;
+    font-size: $fontSize;
+    opacity: 1;
+    font-family: $fontFamily;
+    text-transform: none;
+  }
+  .error {
+    color: $errorColor !important;
+    font-family: $fontFamily;
+  }
+  .error:-ms-input-placeholder {
+    color: $errorColor;
+    font-family: $fontFamily;
+  }
+  .error::-webkit-input-placeholder {
+    color: $errorColor;
+    font-family: $fontFamily;
+  }
+  .error::-moz-placeholder {
+    color: $errorColor;
+    font-family: $fontFamily;
+  }
+  // sass-lint:enable-all
+}
+
+
+// Convert milli-ems letter spacing to em
+@mixin letter-spacing($spacing) {
+  letter-spacing: ($spacing / 1000) * 1em;
+}
